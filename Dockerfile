@@ -17,4 +17,7 @@ RUN ARCH=$(uname -m) && \
     else \
         echo "Unsupported architecture: $ARCH" && exit 1; \
     fi && \
-    pip3 install --no-cache-dir apache-flink==1.19.1
+    pip3 install --no-cache-dir apache-flink==1.19.1 && \
+    # in: /opt/java/openjdk/conf/security/java.security
+    # strip out "TLSv1, " from jdk.tls.disabledAlgorithms
+    sed -i 's/,\?TLSv1, \?//g' /opt/java/openjdk/conf/security/java.security
