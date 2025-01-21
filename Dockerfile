@@ -17,7 +17,4 @@ RUN ARCH=$(uname -m) && \
     else \
         echo "Unsupported architecture: $ARCH" && exit 1; \
     fi && \
-    echo "JAVA_HOME=$JAVA_HOME" >> /etc/environment
-
-# Install Apache Flink Python package
-RUN pip3 install --no-cache-dir apache-flink==1.19.1
+    pip3 install --no-cache-dir apache-flink==1.19.1
